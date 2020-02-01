@@ -8,7 +8,7 @@ First off, you'll need to install docker.io, if you are running a linux machine 
 
 Once you got docker installed, you'll need to create a volume that will contain the Everquest install. I didn't include this in the docker container itself for a number of reasons, mostly because I'm not sure if its legal, but also to make patching easier as well as retaining player configs which would otherwise get blasted each time you start/stop. You can create the volume with the follow command:
 
-docker volume create everquest
+    docker volume create everquest
 
 This will make a directory within the docker install ( /var/lib/docker/volumes/everquest/_data on linux )
 
@@ -18,7 +18,7 @@ Copy your whole Everquest install to that directory which may require elevated p
 
 Then all you have to do is invoke docker through the command line with the following:
 
-docker run -it \
+    docker run -it \
     --rm \
     --env="DISPLAY" \
     --hostname="$(hostname)" \
@@ -40,7 +40,7 @@ Let me know if you run into any issues and I'll help ya figure em out. Docker is
 
 If you just wanna poke around as if you were ssh'd into the machine then just run a shell on the container with /bin/bash:
 
-docker run -it \
+    docker run -it \
     --rm \
     --env="DISPLAY" \
     --hostname="$(hostname)" \
